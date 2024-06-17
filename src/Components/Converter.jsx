@@ -16,15 +16,15 @@ export default function Converter() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     setData({
       feet,
       inch,
     });
-  };
-  let f=feet*0.3048;
-  let i=inch*0.0254;
-  let r=f+i
+};
+let f=data.feet*0.3048;
+let i=data.inch*0.0254;
+let r=f+i
   return (
       <div className="flex flex-col justify-center py-8 bg-[#67ade5] ">
         <h1 className="text-center">Feet To Meter Converter </h1>
