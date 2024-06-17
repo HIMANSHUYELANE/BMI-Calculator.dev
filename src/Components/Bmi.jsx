@@ -17,40 +17,35 @@ export default function Bmi() {
       setWeight(value);
     }
   };
-  const [show, setShow]=useState(true)
-  const [eror , setEror]=useState({})
+  const [eror, setEror] = useState({});
   function hnadleEvent(e) {
     e.preventDefault();
     setData({
       height,
       weight,
     });
-    error(height,weight)
+    error(height, weight);
   }
-  function error(height, weight){
-    const err={}
-    if(!height){
-      err.height="Please Enter the Height"
+  function error(height, weight) {
+    const err = {};
+    if (!height) {
+      err.height = "Please Enter the Height";
     }
-    if(!weight){
-      err.weight="please Enter the Weight"
+    if (!weight) {
+      err.weight = "please Enter the Weight";
     }
-    setEror(err)
-    return err
+    setEror(err);
+    return err;
   }
-  
-  //   console.log(data.height);
-  //   console.log(data.weight);
-  // const [bmi , setBmi]=useState('')
+  console.log(data)
   let cal = data.weight / Math.pow(data.height, 2);
-  // setBmi(cal)
   return (
     <>
-      <div className="bg-[#67ade5] h-screen">
-        <div className="text-center text-3xl font-bold py-10 ">
+      <div className="bg-[#67ade5]">
+        <div className="text-center text-3xl font-bold py-5 ">
           Body Mass Index (BMI) Calculator
         </div>
-        <div className="md:w-[60%] space-y-5 w-[80%] mx-auto">
+        <div className="md:w-[60%] space-y-5 w-[80%] py-1 mx-auto">
           <div className="flex flex-col w-[90%] md:w-[60%] mx-auto">
             <label>Height</label>
             <input
@@ -62,7 +57,9 @@ export default function Bmi() {
               name="height"
               id=""
             />
-            <span className="font-normal text-sm text-red-800">{eror.height}</span>
+            <span className="font-normal text-sm text-red-800">
+              {eror.height}
+            </span>
             <label>weight</label>
             <input
               placeholder="In Kilograms"
@@ -73,8 +70,12 @@ export default function Bmi() {
               name="weight"
               id=""
             />
-            <span className="font-normal text-sm text-red-800">{eror.weight}</span>
-            <button className="border-2 my-5" onClick={hnadleEvent}>Calculate</button>
+            <span className="font-normal text-sm text-red-800">
+              {eror.weight}
+            </span>
+            <button className="border-2 my-5" onClick={hnadleEvent}>
+              Calculate
+            </button>
           </div>
           <div className="md:flex items-center justify-evenly ">
             <div className="w-[200px] mx-auto md:mx-0">
